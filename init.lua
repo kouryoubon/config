@@ -1,0 +1,1 @@
+/Users/kouryoubon/.config/nvim/init.lua
