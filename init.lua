@@ -1,1 +1,1 @@
-/Users/kouryoubon/.config/nvim/init.lua
+/Users/k/.config/nvim/init.lua

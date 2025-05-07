@@ -34,6 +34,10 @@ vim.opt.cursorline = true
 vim.opt.updatetime = 100
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.hlsearch = true
+
+-- cursor type
+vim.o.guicursor = "n-c-sm:ver25,i-ci-ve:ver25,r-cr-o:ver25"
 
 -- Plugin installation section
 vim.cmd [[
@@ -73,7 +77,6 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin' }
 " Leap
 Plug 'ggandor/leap.nvim'
 
-
 call plug#end()
 ]]
 
@@ -93,6 +96,8 @@ vim.cmd.colorscheme "catppuccin"
 
 -- copilot.nvim
 vim.g.copilot_enabled = false 
+
+-- coc_nvim
 vim.g.coc_global_extensions = {
     'coc-snippets', 
     'coc-pyright',
@@ -106,7 +111,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Enable completion
-vim.o.completeopt = "menuone,noinsert,noselect"
+--vim.o.completeopt = "menuone,noinsert,noselect"
 
 -- Key mappings for autocompletion
 local keyset = vim.keymap.set
@@ -137,6 +142,18 @@ keyset("n", "Q", ":q<CR>", { noremap = true })
 keyset("n", "W", ":w<CR>", { noremap = true })
 keyset("n", ";", ":", { noremap = true })
 
+-- Use K to show documentation in preview window
+function _G.show_docs()
+    local cw = vim.fn.expand('<cword>')
+    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+    elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+    else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+    end
+end
+keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent=true})
 
 -- Highlight the symbol under cursor
 vim.cmd([[
@@ -146,7 +163,7 @@ vim.cmd([[
 -- nvim-tree Configuration
 require('nvim-tree').setup()
 
--- Key mappings
+-- key mappings
 vim.keymap.set('n', '<Leader>ff', ':Telescope find_files<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>tt', ':NvimTreeToggle<CR>', { noremap = true })
@@ -155,4 +172,4 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Plug>(coc-definition)', {})
 vim.api.nvim_set_keymap('n', '<leader>gr', '<Plug>(coc-references)', {})
 vim.api.nvim_set_keymap('n', '<leader>rn', '<Plug>(coc-rename)', {})
 vim.api.nvim_set_keymap('n', 'K', ':call CocActionAsync("doHover")<CR>', { silent = true })
-
+-- Key mappings

@@ -3,14 +3,15 @@
   "coc.preferences.formatOnType": true,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/opt/homebrew/Caskroom/miniconda/base/bin/black",
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-  "extensions.updateCheck": "daily",
-  "clangd.path": "/usr/bin/clangd",
-  "clangd.arguments": [],
+  "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd",
+  "clangd.arguments": [
+    "--header-insertion=never",
+    "--inlay-hints=true"
+  ],
   "clangd.fallbackFlags": [
     "-std=c++20"
   ],
   "semanticTokens.enable": true,
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "extensions.updateCheck": "daily",
 }
