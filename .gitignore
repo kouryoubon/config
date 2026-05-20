@@ -4,7 +4,9 @@
 !tmux/
 !nvim/
 !pip/
+!aerospace
 !fish/config.fish
 !tmux/.tmux.conf
 !nvim/**
 !pip/**
+!aerospace/**

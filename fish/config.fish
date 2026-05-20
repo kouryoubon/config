@@ -10,7 +10,8 @@ alias diff="diff --color=auto"
 alias clang="/usr/bin/clang -Wall -Wextra -Wshadow -Wconversion -Wpedantic"
 alias clang++="/usr/bin/clang++ -std=c++20 -Werror -Wall -Wextra -Wshadow -Wconversion -Wpedantic"
 alias archivebox="docker compose -f ~/archivebox/docker-compose.yml run --remove-orphans archivebox"
-alias p="python"
+alias p="python3"
+alias sv="source .venv/bin/activate.fish"
 #alias cmake_export="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 
 set -gx CLICOLOR 1
@@ -25,11 +26,11 @@ end
 
 set -gx LANG en_US.UTF-8
 
-set -gx HOMEBREW_API_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api
-set -gx HOMEBREW_BREW_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-set -gx HOMEBREW_CORE_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-set -gx HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-set -gx HOMEBREW_INSTALL_FROM_API 1
+# set -gx HOMEBREW_API_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api
+# set -gx HOMEBREW_BREW_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+# set -gx HOMEBREW_CORE_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+# set -gx HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+# set -gx HOMEBREW_INSTALL_FROM_API 1
 
 set -gx CC /opt/homebrew/opt/llvm/bin/clang
 set -gx CXX /opt/homebrew/opt/llvm/bin/clang++
@@ -62,10 +63,8 @@ set -gx CMAKE_PREFIX_PATH "/opt/homebrew/opt/llvm"
 #
 # set -U fish_theme $fish_theme
 
-fish_config theme choose "Catppuccin Mocha"
-
-# fzf 
-#fzf --fish | source 
+# fzf
+#fzf --fish | source
 
 ### uv completion
 uv generate-shell-completion fish | source
@@ -102,4 +101,9 @@ fish_add_path /Users/k/.antigravity/antigravity/bin
 fish_add_path /opt/homebrew/opt/llvm/bin
 set -gx PATH ~/.local/bin $VCPKG_ROOT $PATH
 
-source ~/Code/Python/.venv/bin/activate.fish
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# Amp CLI
+fish_add_path "$HOME/.local/bin"

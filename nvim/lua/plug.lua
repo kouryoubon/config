@@ -19,8 +19,6 @@ local vim = vim
 local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin", vim.fn.stdpath("data") .. "/plugged")
--- Comments
-Plug("numToStr/Comment.nvim")
 --Leap
 Plug("https://codeberg.org/andyg/leap.nvim")
 
@@ -56,10 +54,12 @@ if not vim.g.vscode then
 
   --File Editor/Explorer
   Plug("stevearc/oil.nvim")
+  Plug("MunifTanjim/nui.nvim")
+  Plug("nvim-tree/nvim-web-devicons")
+  Plug("nvim-neo-tree/neo-tree.nvim", { ["branch"] = "v3.x" })
 end
 vim.call("plug#end")
 
-require("config.comment")
 require("config.leap")
 if not vim.g.vscode then
   require("config.catppuccin")

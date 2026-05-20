@@ -6,7 +6,6 @@ require("catppuccin").setup({
   },
   transparent_background = false,
   term_colors = true,
-  show_end_of_buffer = false,
   styles = {
     comments = { "italic" },
     conditionals = { "italic" },
@@ -33,7 +32,7 @@ require("catppuccin").setup({
   },
 })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin-nvim"
 
 vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#fe640b", bold = true })
 vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fe640b", bold = true })

@@ -1,7 +1,7 @@
 require('lualine').setup({
     icons_enabled = true,
     options = {
-        theme = "catppuccin",
+        theme = "catppuccin-nvim",
     },
     tabline = {
         lualine_a = { 'buffers' },
