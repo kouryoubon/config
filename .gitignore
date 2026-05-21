@@ -1,5 +1,6 @@
 *
 !.gitignore
+!setup.sh
 !fish/
 !tmux/
 !nvim/
