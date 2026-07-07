@@ -68,6 +68,7 @@ if not vim.g.vscode then
   require("config.auto-pairs")
   require("config.telescope")
   require("config.oil")
+  require("config.neo-tree")
   require("config.lualine")
   require("config.conform")
   require("config.venv-selector")

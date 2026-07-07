@@ -32,6 +32,11 @@ set -gx LANG en_US.UTF-8
 # set -gx HOMEBREW_BOTTLE_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 # set -gx HOMEBREW_INSTALL_FROM_API 1
 
+# Secrets (API keys, tokens) — keep out of git
+if test -f ~/.config/fish/secrets.fish
+  source ~/.config/fish/secrets.fish
+end
+
 set -gx CC /opt/homebrew/opt/llvm/bin/clang
 set -gx CXX /opt/homebrew/opt/llvm/bin/clang++
 set -gx CMAKE_TOOLCHAIN_FILE /Users/k/vcpkg/scripts/buildsystems/vcpkg.cmake

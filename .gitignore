@@ -8,6 +8,12 @@
 !aerospace
 !fish/config.fish
 !tmux/.tmux.conf
+!tmux-mini/
+!tmux-mini/**
 !nvim/**
+!nvim-mini/
+!nvim-mini/**
 !pip/**
 !aerospace/**
+.DS_Store
+.claude/

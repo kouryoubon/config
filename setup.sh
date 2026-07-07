@@ -85,7 +85,7 @@ info "Homebrew $(brew --version | head -1)"
 
 # ── 4. CLI tools ──────────────────────────────────────────────────────────────
 step "Installing CLI tools..."
-CLI_TOOLS=(fish neovim tmux cmake fzf ripgrep fd)
+CLI_TOOLS=(fish neovim tmux cmake fzf ripgrep fd llvm)
 brew install "${CLI_TOOLS[@]}"
 
 # ── 5. vcpkg ──────────────────────────────────────────────────────────────────
@@ -109,7 +109,17 @@ _install_cask() {
     fi
 }
 _install_cask iterm2
-_install_cask aerospace
+brew tap nikitabobko/tap
+_install_cask nikitabobko/tap/aerospace
+
+# ── 6b. Catppuccin color schemes for iTerm2 ──────────────────────────────────
+step "Catppuccin themes for iTerm2..."
+for _flavor in frappe latte macchiato mocha; do
+    curl -sLo "/tmp/catppuccin-${_flavor}.itermcolors" \
+        "https://github.com/catppuccin/iterm/raw/main/colors/catppuccin-${_flavor}.itermcolors"
+    open "/tmp/catppuccin-${_flavor}.itermcolors"
+done
+info "All four Catppuccin flavors imported into iTerm2"
 
 # ── 7. Fish as default shell ──────────────────────────────────────────────────
 step "Setting fish as default shell..."

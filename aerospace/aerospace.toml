@@ -3,6 +3,7 @@
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
+config-version = 2
 after-startup-command = []
 
 # Start AeroSpace at login
@@ -94,7 +95,7 @@ outer.right = 15
 #     activate
 # end tell'
 # '''
-alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
+alt-enter = 'exec-and-forget open -n /Applications/iTerm.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
